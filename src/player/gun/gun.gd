@@ -16,8 +16,6 @@ var can_shoot: bool = true;
 # Ready
 #
 func _ready() -> void:
-	update_delay_timer();
-	
 	## Connect self to bullet_fired signal on level
 	bullet_fired.connect(get_tree().get_first_node_in_group("level").spawn_bullet);
 
@@ -33,7 +31,6 @@ func _process(delta: float) -> void:
 # Shooting
 #
 func shoot() -> void:
-	print("shot")
 	can_shoot = false;
 	
 	var new_bullet: Bullet = bullet.instantiate();
@@ -46,7 +43,7 @@ func shoot() -> void:
 	
 	bullet_fired.emit(muzzle.global_position, new_bullet);
 	
-	timer.start();
+	timer.start(fire_delay * get_parent().get_parent().stats["attack_speed"]);
 	await timer.timeout;
 	can_shoot = true;
 
@@ -57,5 +54,3 @@ func shoot() -> void:
 ### Helper Functions ###
 ########################
 
-func update_delay_timer() -> void:
-	timer.set_wait_time(fire_delay * get_parent().get_parent().stats["attack_speed"]);

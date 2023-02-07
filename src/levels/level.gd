@@ -17,3 +17,9 @@ func spawn_bullet(pos: Vector2, bullet: Bullet) -> void:
 func spawn_effect(pos: Vector2, effect: Node2D) -> void:
 	## TODO: Spawning particle/sprite effects
 	pass;
+
+#
+# Spawn experience
+#
+func spawn_exp(pos: Vector2, type: Node2D) -> void:
+	pass;

@@ -51,6 +51,7 @@ func up_base_damage(value: float) -> void:
 	player.stats["base_damage"] += value;
 
 func up_attack_speed(value: float) -> void:
+	print("upgraded")
 	player.stats["attack_speed"] -= value;
 
 func up_proj_speed(value: float) -> void:

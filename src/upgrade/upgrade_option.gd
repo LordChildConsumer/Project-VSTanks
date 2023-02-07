@@ -24,5 +24,6 @@ signal upgrade_selected; ## TODO: Connect this to the menu
 # Trigger the upgrade
 #
 func _on_Upgrade_Selected() -> void:
-	EventBus.target_signal.emit();
+	EventBus.emit_signal(target_string, signal_arg);
+	upgrade_selected.emit();
 	## TODO: Play a sound and close the upgrade menu

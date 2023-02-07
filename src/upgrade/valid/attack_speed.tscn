@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7sg7ltkiindq"]
+
+[ext_resource type="PackedScene" uid="uid://c6uhc104sw7r" path="res://src/upgrade/upgrade_option.tscn" id="1_7gi7t"]
+[ext_resource type="Texture2D" uid="uid://cq05h417upf4f" path="res://dat/ui/upgrades/attack_speed.png" id="2_pgbpb"]
+
+[node name="AttackSpeed" instance=ExtResource("1_7gi7t")]
+text = "Attack Faster (+5%)"
+icon = ExtResource("2_pgbpb")
+target_string = "upgrade_attack_speed"
+signal_arg = 0.05

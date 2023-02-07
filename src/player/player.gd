@@ -82,7 +82,9 @@ func _on_pickup_area_entered(area: Area2D) -> void:
 		
 		stats["exp"] += area.get_exp();
 		
-		if await _ui.update_exp(stats["exp"]):
+		
+		
+		if await _ui.update_exp():
 			stats["exp"] = 0;
 			stats["level"] += 1;
 			_ui.update_level(stats["level"]);

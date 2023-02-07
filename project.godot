@@ -25,9 +25,6 @@ EventBus="*res://src/_autoload/EventBus.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/vsync/vsync_mode=0
-mouse_cursor/custom_image="res://dat/ui/cursors/default.png"
-mouse_cursor/custom_image_hotspot=Vector2(32.5, 32.5)
-mouse_cursor/tooltip_position_offset=Vector2(40, 40)
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

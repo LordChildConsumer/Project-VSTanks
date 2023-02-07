@@ -17,6 +17,9 @@ func load_new_scene(scene: String) -> void:
 	## Fade to loading screen
 	_anim.play("fade-to-load");
 	await _anim.animation_finished;
+	
+	$BG.mouse_filter = Control.MOUSE_FILTER_STOP;
+	
 	_anim.play("loading");
 	
 	## Actually load the scene
@@ -42,6 +45,7 @@ func load_new_scene(scene: String) -> void:
 		## The scene has finished loading
 		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(scene));
 		
+		$BG.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_anim.play("fade-to-game");
 	
 	

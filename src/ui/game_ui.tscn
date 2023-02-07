@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://deyrpdhg6xm6s"]
+
+[ext_resource type="Script" path="res://src/player/UI.gd" id="1_n5kvx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se76i"]
+bg_color = Color(0.0784314, 0.203922, 0.392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30kdu"]
+bg_color = Color(0.141176, 0.623529, 0.870588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h10da"]
+bg_color = Color(0.2, 0.223529, 0.254902, 1)
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+layer = 0
+script = ExtResource("1_n5kvx")
+
+[node name="EXP" type="ProgressBar" parent="."]
+process_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_se76i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_30kdu")
+max_value = 5.0
+show_percentage = false
+
+[node name="LVL" type="Label" parent="EXP"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+text = "Level: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="M" type="MarginContainer" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/margin_left = 384
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 384
+theme_override_constants/margin_bottom = 64
+
+[node name="UPGRADES" type="Control" parent="M"]
+process_mode = 3
+top_level = true
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="BG" type="Panel" parent="M/UPGRADES"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h10da")
+metadata/_edit_lock_ = true
+
+[node name="LIST" type="VBoxContainer" parent="M/UPGRADES"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/separation = 0
+
+[node name="TITLE" type="Label" parent="M/UPGRADES/LIST"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "UPGRADES"
+horizontal_alignment = 1
+vertical_alignment = 1

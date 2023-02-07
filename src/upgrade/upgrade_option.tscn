@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://src/upgrade/upgrade_option.gd" id="1_2q75f"]
 
 [node name="UpgradeOption" type="Button"]
+process_mode = 3
 custom_minimum_size = Vector2(512, 64)
 anchors_preset = 5
 anchor_left = 0.5
@@ -11,6 +12,7 @@ offset_left = -256.0
 offset_right = 256.0
 offset_bottom = 64.0
 grow_horizontal = 2
+expand_icon = true
 script = ExtResource("1_2q75f")
 
 [connection signal="pressed" from="." to="." method="_on_Upgrade_Selected"]
