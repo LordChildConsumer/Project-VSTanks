@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://84mmswvwyq3y"]
+
+[ext_resource type="Script" path="res://src/enemy/enemy.gd" id="1_jerui"]
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 14
+motion_mode = 1
+script = ExtResource("1_jerui")
+
+[node name="sprite" type="Sprite2D" parent="."]
+
+[node name="collider" type="CollisionShape2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+editor_description = "Used to update the target position every so often"
+wait_time = 0.5
+autostart = true

@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdq265kst5neh"]
+
+[ext_resource type="Script" path="res://src/player/player.gd" id="1_ig66h"]
+[ext_resource type="Texture2D" uid="uid://b3utpfqo4hw17" path="res://dat/sprites/player/body.png" id="1_leqcn"]
+[ext_resource type="Script" path="res://src/player/UI.gd" id="2_6jt34"]
+[ext_resource type="PackedScene" uid="uid://ie0dtrh7s337" path="res://src/player/gun/default_gun.tscn" id="3_084kl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se76i"]
+bg_color = Color(0.0784314, 0.203922, 0.392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30kdu"]
+bg_color = Color(0.141176, 0.623529, 0.870588, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kj7s"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kduoh"]
+radius = 32.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_ig66h")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("2_6jt34")
+
+[node name="EXP" type="ProgressBar" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_se76i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_30kdu")
+max_value = 5.0
+show_percentage = false
+
+[node name="LVL" type="Label" parent="UI/EXP"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="Sprite2D" parent="."]
+rotation = -1.57079
+texture = ExtResource("1_leqcn")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3kj7s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GunParent" type="Node2D" parent="."]
+
+[node name="Gun" parent="GunParent" instance=ExtResource("3_084kl")]
+
+[node name="Pickup" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+shape = SubResource("CircleShape2D_kduoh")
+
+[connection signal="area_entered" from="Pickup" to="." method="_on_pickup_area_entered"]

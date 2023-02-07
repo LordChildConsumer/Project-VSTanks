@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ie0dtrh7s337"]
+
+[ext_resource type="PackedScene" uid="uid://dkj1dtk83a0hg" path="res://src/player/gun/gun.tscn" id="1_avwxg"]
+[ext_resource type="PackedScene" uid="uid://3dsovn3u4ct6" path="res://src/bullet/default_bullet.tscn" id="2_665ji"]
+[ext_resource type="Texture2D" uid="uid://cg1pfyp8yyhup" path="res://dat/sprites/player/weapon-default.png" id="2_u6bm8"]
+
+[node name="Gun" instance=ExtResource("1_avwxg")]
+bullet = ExtResource("2_665ji")
+
+[node name="sprite" parent="." index="0"]
+rotation = -1.5708
+texture = ExtResource("2_u6bm8")
+centered = false
+offset = Vector2(-6, 0)
+
+[node name="Muzzle" parent="." index="1"]
+position = Vector2(32, 0)

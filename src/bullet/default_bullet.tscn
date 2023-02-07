@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://3dsovn3u4ct6"]
+
+[ext_resource type="PackedScene" uid="uid://cqbbp5rpgu5jp" path="res://src/bullet/bullet.tscn" id="1_p8kr2"]
+[ext_resource type="Texture2D" uid="uid://d17wpin1ridqj" path="res://dat/sprites/projectiles/default.png" id="2_6tdth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjufa"]
+size = Vector2(16, 8)
+
+[node name="DefaultBullet" instance=ExtResource("1_p8kr2")]
+
+[node name="sprite" parent="." index="0"]
+rotation = 1.5708
+texture = ExtResource("2_6tdth")
+
+[node name="collider" parent="." index="1"]
+shape = SubResource("RectangleShape2D_vjufa")

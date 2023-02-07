@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkj1dtk83a0hg"]
+
+[ext_resource type="Script" path="res://src/player/gun/gun.gd" id="1_kbbny"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_kbbny")
+
+[node name="sprite" type="Sprite2D" parent="."]
+
+[node name="Muzzle" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

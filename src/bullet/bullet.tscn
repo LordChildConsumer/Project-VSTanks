@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqbbp5rpgu5jp"]
+
+[ext_resource type="Script" path="res://src/bullet/bullet.gd" id="1_wyjks"]
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 12
+script = ExtResource("1_wyjks")
+
+[node name="sprite" type="Sprite2D" parent="."]
+
+[node name="collider" type="CollisionShape2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
