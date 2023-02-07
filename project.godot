@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://src/_autoload/SceneManager/SceneManager.tscn"
+EventBus="*res://src/_autoload/EventBus.gd"
 
 [display]
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://54ged7j53fbu"]
+
+[ext_resource type="Script" path="res://src/_debug/upgrade_test.gd" id="1_345mv"]
+
+[node name="UPGRADE-TEST" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_345mv")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.827451, 0, 0.427451, 0.227451)
+polygon = PackedVector2Array(-32, -64, -64, -32, -64, 32, -32, 64, 32, 64, 64, 32, 64, -32, 32, -64)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, -64, -64, -32, -64, 32, -32, 64, 32, 64, 64, 32, 64, -32, 32, -64)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

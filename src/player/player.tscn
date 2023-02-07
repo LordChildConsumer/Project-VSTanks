@@ -1,15 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdq265kst5neh"]
+[gd_scene load_steps=11 format=3 uid="uid://bdq265kst5neh"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_ig66h"]
 [ext_resource type="Texture2D" uid="uid://b3utpfqo4hw17" path="res://dat/sprites/player/body.png" id="1_leqcn"]
 [ext_resource type="Script" path="res://src/player/UI.gd" id="2_6jt34"]
 [ext_resource type="PackedScene" uid="uid://ie0dtrh7s337" path="res://src/player/gun/default_gun.tscn" id="3_084kl"]
+[ext_resource type="Script" path="res://src/player/StatHandler.gd" id="4_4afd7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se76i"]
 bg_color = Color(0.0784314, 0.203922, 0.392157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30kdu"]
 bg_color = Color(0.141176, 0.623529, 0.870588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h10da"]
+bg_color = Color(0.2, 0.223529, 0.254902, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kj7s"]
 size = Vector2(32, 32)
@@ -46,6 +50,49 @@ grow_vertical = 2
 text = "Level: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="M" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 384
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 384
+theme_override_constants/margin_bottom = 64
+
+[node name="UPGRADES" type="Control" parent="UI/M"]
+layout_mode = 2
+
+[node name="BG" type="Panel" parent="UI/M/UPGRADES"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h10da")
+metadata/_edit_lock_ = true
+
+[node name="VB" type="VBoxContainer" parent="UI/M/UPGRADES"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="UPGRADES" type="Label" parent="UI/M/UPGRADES/VB"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+text = "UPGRADES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatHandler" type="Node2D" parent="."]
+script = ExtResource("4_4afd7")
 
 [node name="Body" type="Sprite2D" parent="."]
 rotation = -1.57079
